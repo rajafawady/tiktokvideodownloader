@@ -13,6 +13,18 @@ This React Native application allows users to download TikTok videos with and wi
 - Play downloaded videos within the app interface.
 - Delete unwanted videos directly from the app.
 
+  ## Screenshots
+
+![Screenshot 1](screenshots/1.jpg)
+![Screenshot 2](screenshots/2.jpg)
+![Screenshot 3](screenshots/2(2).jpg)
+![Screenshot 4](screenshots/3.jpg)
+![Screenshot 5](screenshots/4.jpg)
+![Screenshot 6](screenshots/5.jpg)
+![Screenshot 7](screenshots/6.jpg)
+![Screenshot 8](screenshots/7.jpg)
+
+
 ## Installation
 
 1. Clone the repository:
