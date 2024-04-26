@@ -1,7 +1,7 @@
 
 const config = {
-  apiUrl: 'https://tiktok-video-no-watermark5.p.rapidapi.com/videodetail',
-  X_RapidAPI_Key: '3cc3a0f018msh09b6fd8ac270ecep19c42fjsn96aaf6a713e8',
-  X_RapidAPI_Host: 'tiktok-video-no-watermark5.p.rapidapi.com',
+  apiUrl: 'https://tiktok-video-no-watermark10.p.rapidapi.com/index/Tiktok/getVideoInfo',
+  X_RapidAPI_Key: '49fa501b7cmsh333617f2fa971abp17a14fjsnf98a341256b6',
+  X_RapidAPI_Host: 'tiktok-video-no-watermark10.p.rapidapi.com',
 };
 export {config};

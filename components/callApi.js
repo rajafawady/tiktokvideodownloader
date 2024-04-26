@@ -17,9 +17,10 @@ const callApi = async (videoUrl) => {
   
   try {
     const response = await axios.request(options);
-    if(response.data.status===0){
-      return response.data;
-    }else if(response.data.status===404){
+    if(response.data.code===0){
+      console.log(response.data);
+      return response.data.data;
+    }else if(response.data.code===404){
       return 404;
     }else{
       return null;

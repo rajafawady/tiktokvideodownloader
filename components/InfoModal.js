@@ -22,7 +22,7 @@ const InfoModal = ({ infoVisible, toggleInfoVisible }) => {
         <ScrollView contentContainerStyle={styles.scrollContentContainer}>
           <Ionicons name='link' color="#ff003d" size={50} style={{ textAlign: 'center' }} />
           <Text style={styles.infoText}>
-            Click on the share button in TikTok and copy the link of the video.
+            Click on the share button in TikTok. Open the video in TikTok Video Downloader app by clicking the icon from share menu or copy the link of the video.
           </Text>
           <Ionicons name='download' color="#ff003d" size={50} style={{ textAlign: 'center' }} />
           <Text style={styles.infoText}>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoText: {
-    marginTop: 10,
+    marginTop: 6,
     fontSize: 16,
     lineHeight: 24,
   },

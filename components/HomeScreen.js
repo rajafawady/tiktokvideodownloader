@@ -135,10 +135,10 @@ const HomeScreen = ({ refreshData, process }) => {
       setFileTitle('');
       setPreparing(true);
       setProgressModalVisible(true);
-      const authorUserName=apiData.author.unique_id;
-      const authorAvatar=apiData.author.avatar.avatar_thumb.url_list[1];
+      const authorUserName=apiData.author.nickname;
+      const authorAvatar=apiData.author.avatar;
       const fileDuration=apiData.duration;
-      let title = apiData.desc.substring(0, 50);
+      let title = apiData.title.substring(0, 50);
       title = title.replace(/[^\p{L}0-9\s]/gu, '');
       title = title.trim();      
       if(title===''){
@@ -152,15 +152,15 @@ const HomeScreen = ({ refreshData, process }) => {
       let mime='';
   
       if (mode === 'video') {
-        downloadUrl = apiData.video.video_wm.url_list[0];
+        downloadUrl = apiData.wmplay;
         mime='.mp4';
         fileUri = `${fileDirectory}${title}${mime}`;
       } else if (mode === 'videoNoWatermark') {
-        downloadUrl = apiData.video.video_nwm.url_list[0];
+        downloadUrl = apiData.play;
         mime='.mp4';
         fileUri = `${fileDirectory}${title}VNMR${mime}`;
       } else if (mode === 'mp3') {
-        downloadUrl = apiData.music.play_url.url_list[0];
+        downloadUrl = apiData.music_info.play;
         mime='.mp3';
         fileUri = `${fileDirectory}${title}${mime}`;
       }
@@ -307,11 +307,11 @@ const saveFileToStorage = async (fileUri, title,mode) => {
                 apiData?
                 <View style={styles.fileInfoCont}>
                   <View style={styles.fileThumbCont}>
-                    <Image style={styles.fileThumb} source={apiData?{uri: apiData.video.cover.url_list[0] }:{uri: ''}} />                   
+                    <Image style={styles.fileThumb} source={apiData?{uri: apiData.origin_cover }:{uri: ''}} />                   
                   </View>
                   <View>  
-                    <Text style={styles.fileTitleText}>{(apiData.desc.substring(0,30))}</Text>
-                    <Text>Duration: {(Math.round((apiData.video.duration/1000)/60))}:{(Math.round((apiData.video.duration/1000)%60))}</Text>
+                    <Text style={styles.fileTitleText}>{(apiData.title.substring(0,30))}</Text>
+                    <Text>Duration: {(Math.round((apiData.duration/1000)/60))}:{(Math.round((apiData.duration/1000)%60))}</Text>
                   </View>
                 </View>
                 :
@@ -328,7 +328,7 @@ const saveFileToStorage = async (fileUri, title,mode) => {
                 <Text style={styles.mp4Text}>Mp4</Text>
                 {
                   apiData?  
-                  <Text style={styles.mbText}>{(((apiData.video.video_wm.data_size)/(1024**2)).toFixed(2))} mb</Text>
+                  <Text style={styles.mbText}>{(((apiData.wm_size)/(1024**2)).toFixed(2))} mb</Text>
                   :
                   (process())
                 }
@@ -341,7 +341,7 @@ const saveFileToStorage = async (fileUri, title,mode) => {
                 <Text style={styles.mp4Text}>Mp4</Text>
                 {
                   apiData?  
-                  <Text style={styles.mbText}>{(((apiData.video.video_nwm.data_size)/(1024**2)).toFixed(2))} mb</Text>
+                  <Text style={styles.mbText}>{(((apiData.size)/(1024**2)).toFixed(2))} mb</Text>
                   :
                   (process())
                 }
@@ -354,7 +354,7 @@ const saveFileToStorage = async (fileUri, title,mode) => {
                 <Text style={styles.mp4Text}>Mp3</Text>
                 {
                   apiData?  
-                  <Text style={styles.mbText}>{((((apiData.video.video_wm.data_size)/(1024**2))/4).toFixed(2))} mb</Text>
+                  <Text style={styles.mbText}>{((((apiData.size)/(1024**2))/4).toFixed(2))} mb</Text>
                   :
                   (process())
                 }
